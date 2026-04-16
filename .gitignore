@@ -1,0 +1,38 @@
+# Python 虛擬環境
+.venv/
+venv/
+env/
+
+# 資料資料夾 (包含 events.json)
+data/
+data/events.json
+
+# Python 快取
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# IDE 設定
+.vscode/
+.idea/
+
+# 日誌
+*.log
+
+# 環境變數
+.env
+.env.local
+.env.*.local
+
+# Docker
+Dockerfile.user
+docker-compose.override.yml
+
+# OS 生成檔案
+.DS_Store?
+ehthumbs.db
+Thumbs.db

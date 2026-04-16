@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跌倒事件 Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>智慧跌倒偵測 Dashboard</h1>
+        <p class="subtitle">近期跌倒事件紀錄</p>
+
+        <div class="card">
+            {% if events %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>裝置 ID</th>
+                        <th>事件時間</th>
+                        <th>狀態</th>
+                        <th>加速度</th>
+                        <th>角速度</th>
+                        <th>接收時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                    <tr>
+                        <td>{{ event.device_id }}</td>
+                        <td>{{ event.timestamp }}</td>
+                        <td>
+                            <span class="badge">{{ event.status }}</span>
+                        </td>
+                        <td>{{ event.acc_magnitude if event.acc_magnitude is not none else "-" }}</td>
+                        <td>{{ event.gyro_magnitude if event.gyro_magnitude is not none else "-" }}</td>
+                        <td>{{ event.received_at if event.received_at is defined else "-" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>目前尚無事件紀錄。</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
