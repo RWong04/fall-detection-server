@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  fall-server:
+    build: .
+    ports:
+      - "${PORT}:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    networks:
+      - fall-net
+
+networks:
+  fall-net:
+    driver: bridge
