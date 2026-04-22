@@ -14,7 +14,7 @@ fi
 
 # 建鏡像
 echo "建置 Docker 鏡像..."
-docker-compose build --no-cache
+docker compose build --no-cache
 
 echo "=========初始化完成========="
 echo ""

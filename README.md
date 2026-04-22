@@ -82,13 +82,13 @@ You can change the external port by editing this file.
 ### 2. Build and start
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ### 3. Stop the service
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Helper Scripts
