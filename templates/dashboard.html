@@ -29,13 +29,13 @@
                     {% for event in events %}
                     <tr>
                         <td>{{ event.device_id }}</td>
-                        <td>{{ event.timestamp }}</td>
+                        <td>{{ format_dt(event.timestamp) }}</td>
                         <td>
                             <span class="badge">{{ event.status }}</span>
                         </td>
                         <td>{{ event.acc_magnitude if event.acc_magnitude is not none else "-" }}</td>
                         <td>{{ event.gyro_magnitude if event.gyro_magnitude is not none else "-" }}</td>
-                        <td>{{ event.received_at if event.received_at is defined else "-" }}</td>
+                        <td>{{ format_dt(event.received_at) if event.received_at is defined else "-" }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
